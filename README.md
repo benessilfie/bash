@@ -136,3 +136,37 @@ sleep 2
 echo "You have the best $compliment I've ever seen $name"
 ```
 
+<br>
+
+### Variables to store the output of commands
+
+To create a variable to store the ouput a command, we do it a bit diffrently from how normal variables in bash are created.
+
+It is however similar to how parameters are created but instead of the number like with parameters, you asssign the value of
+the variable to the name of the command you want to output in brackets.
+
+Example.
+
+```bash
+#!/bin/bash
+
+user=$(whoami)
+date=$(date)
+whereami=$(pwd)
+
+# NTS: You are totally imagining Alfred and bruce having this conversation right now :joy:
+
+echo "Good day Master $user"
+
+sleep 1
+
+echo "Will you be working in the $whereami directory today?"
+
+sleep 2
+
+echo "What day is it, Alfred?"
+
+sleep 1
+
+echo "Well Sir, Today is $date"
+```
