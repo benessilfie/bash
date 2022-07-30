@@ -10,7 +10,7 @@ You start every bash script with:
 
 ```
 
-##### In Bash, `#!` is called a shebang! :joy:
+### In Bash, `#!` is called a shebang! :joy:
 
 A shebang `#!` is used to tell the kernel which interpreter to use running the commands present in the file.
 
@@ -45,7 +45,7 @@ so running `hello.sh` in the terminal by typing `./hello.sh` is the same as typi
 
 
 
-##### Variables!
+### Variables!
 
 So to create a variable in bash, simply type the variable name and use the assignment operator `=` to give it a value.
 
@@ -89,7 +89,7 @@ The output of the script above will be whatever school you type.
 
 
 
-##### Arguments
+### Arguments
 
 To make your script take an argument, you first create a parameter in your script and assign it a number.
 You create a parameter in bash similar to how you create variables but with parameters you assign them a value of `$1` incrememnting
