@@ -1,14 +1,21 @@
 #!/bin/bash
 
-name=$1
-compliment=$2
+user=$(whoami)
+date=$(date)
+whereami=$(pwd)
 
-echo "Good Morning $name"
+# NTS: You are totally imagining Alfred and Bruce having this conversation right now lol
+
+echo "Good day Master $user"
+
+sleep 1
+
+echo "Will you be working in the $whereami directory today?"
 
 sleep 2
 
-echo "You're looking good today $name!!"
+echo "What day is it, Alfred?"
 
-sleep 2
+sleep 1
 
-echo "You have the best $compliment I've ever seen $name"
+echo "Well Sir, Today is $date"
