@@ -153,7 +153,7 @@ user=$(whoami)
 date=$(date)
 whereami=$(pwd)
 
-# NTS: You are totally imagining Alfred and Bruce having this conversation right now :joy^s
+# NTS: You are totally imagining Alfred and Bruce having this conversation right now lol
 
 echo "Good day Master $user"
 
