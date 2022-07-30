@@ -140,10 +140,9 @@ echo "You have the best $compliment I've ever seen $name"
 
 ### Variables to store the output of commands
 
-To create a variable to store the ouput a command, we do it a bit diffrently from how normal variables in bash are created.
+To create a variable to store the ouput of a command, we do it a bit diffrently from how normal variables in bash are created.
 
-It is however similar to how parameters are created but instead of the number like with parameters, you asssign the value of
-the variable to the name of the command you want to output in brackets.
+It is however similar to how parameters are created but instead of assigning the value of the parameter with the `$` and a number, you do this a `$` and the name of the command you want to output in brackets.
 
 Example.
 
@@ -154,7 +153,7 @@ user=$(whoami)
 date=$(date)
 whereami=$(pwd)
 
-# NTS: You are totally imagining Alfred and bruce having this conversation right now :joy:
+# NTS: You are totally imagining Alfred and Bruce having this conversation right now :joy^s
 
 echo "Good day Master $user"
 
