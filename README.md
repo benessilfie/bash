@@ -10,6 +10,8 @@ You start every bash script with:
 
 ```
 
+<br>
+
 ### In Bash, `#!` is called a shebang! :joy:
 
 A shebang `#!` is used to tell the kernel which interpreter to use running the commands present in the file.
@@ -43,7 +45,7 @@ should be Bash.
 
 so running `hello.sh` in the terminal by typing `./hello.sh` is the same as typing `/bin/bash hello.sh` when you use a `#!` Shebang.
 
-
+<br>
 
 ### Variables!
 
@@ -87,7 +89,7 @@ echo "The name of the best high school in Ghana is $high_school"
 
 The output of the script above will be whatever school you type.
 
-
+<br>
 
 ### Arguments
 
