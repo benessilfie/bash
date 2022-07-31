@@ -94,7 +94,7 @@ The output of the script above will be whatever school you type.
 ### Arguments
 
 To make your script take an argument, you first create a parameter in your script and assign it a number.
-You create a parameter in bash similar to how you create variables but with parameters you assign them a value of `$1` incrememnting
+You create a parameter in bash similar to how you create variables but with parameters you assign them a value of `$1` incrementing
 by the number of parameters you want to create.
 
 - To make your script recieve an argument, you create a single parameter like this:
@@ -169,3 +169,63 @@ sleep 1
 
 echo "Well Sir, Today is $date"
 ```
+
+### The $RANDOM Variable
+
+`$RANDOM` is a built in variable that comes with linux. It is used to generate random integers in linux and returns a psuedo-random `16-bit` 
+integer between 0 and 32767.
+
+```bash
+
+echo $RANDOM
+```
+
+<br>
+
+---
+
+**NOTE**
+
+You can actually create your own system variables like `$RANDOM` and `$PWD`.
+
+There are two types of system variables; 
+
+- `Environment Variables`: Variables that are defined for the current shell and can be used by child shells or processes "bash scripts"
+- `Shell Variables`: Variables that are contained exclusively within the shell in which they are created or defined. These can be inherited or used by child processes.
+
+Example of a `Shell Variable`:
+```bash
+PRESIDENT="Addo D"
+
+echo $PRESIDENT
+
+# Output: Addo D
+```
+
+To create an environment variable, create a shell variable and `export` it. Like this:
+
+```bash
+PRESIDENT="Addo D"
+
+export PRESIDENT
+```
+
+This `env` variable is not permanent, when you log out of the system, it will go away. To make your environment variables permanent, add it
+to the `.bashrc` file.
+
+```bash
+
+nano .bashrc
+
+# When open add the line below to the .bashrc file
+
+export PRESIDENT="Addo D"
+
+```
+
+By convention, these types of variables are usually defined using all caps. This helps distinguish them within other contexts.
+
+---
+
+<br>
+
