@@ -176,11 +176,10 @@ echo "Well Sir, Today is $date"
 integer between 0 and 32767.
 
 ```bash
+#!/bin/bash
 
 echo $RANDOM
 ```
-
-<br>
 
 ---
 
@@ -191,10 +190,12 @@ You can actually create your own system variables like `$RANDOM` and `$PWD`.
 There are two types of system variables; 
 
 - `Environment Variables`: Variables that are defined for the current shell and can be used by child shells or processes "bash scripts"
-- `Shell Variables`: Variables that are contained exclusively within the shell in which they are created or defined. These can be inherited or used by child processes.
+- `Shell Variables`: Variables that are contained exclusively within the shell in which they are created or defined. Shell variables can not be inherited or used by child processes.
 
 Example of a `Shell Variable`:
 ```bash
+#!/bin/bash
+
 PRESIDENT="Addo D"
 
 echo $PRESIDENT
@@ -205,6 +206,8 @@ echo $PRESIDENT
 To create an environment variable, create a shell variable and `export` it. Like this:
 
 ```bash
+#!/bin/bash
+
 PRESIDENT="Addo D"
 
 export PRESIDENT
@@ -214,10 +217,11 @@ This `env` variable is not permanent, when you log out of the system, it will go
 to the `.bashrc` file.
 
 ```bash
+#!/bin/bash
 
 nano .bashrc
 
-# When open add the line below to the .bashrc file
+# When open, add the line below to the .bashrc file
 
 export PRESIDENT="Addo D"
 
@@ -226,6 +230,4 @@ export PRESIDENT="Addo D"
 By convention, these types of variables are usually defined using all caps. This helps distinguish them within other contexts.
 
 ---
-
-<br>
 
