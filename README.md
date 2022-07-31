@@ -180,6 +180,7 @@ integer between 0 and 32767.
 
 echo $RANDOM
 ```
+<br>
 
 ---
 
@@ -230,4 +231,5 @@ export PRESIDENT="Addo D"
 By convention, these types of variables are usually defined using all caps. This helps distinguish them within other contexts.
 
 ---
+<br>
 
