@@ -234,3 +234,27 @@ By convention, these types of variables are usually defined using all caps. This
 ---
 <br>
 
+### Conditionals Statements - If/Esle
+
+We use `if/else` statements in shell scripts to make decisions or evaluate a condition. This basically allows us to choose a response
+or execute a particular command when our condition is met. In bash the syntax for `if/else` statements are in the `eg.` below.
+
+
+```bash
+#!/bin/bash
+
+
+echo "You died"
+
+echo "Hey, do you like coffee? (y/n)"
+
+read coffee
+
+if [[ $coffee == "y" ]]; then
+        echo "You're awesome"
+else
+        echo "Get Out!!!!"
+fi
+```
+
+
