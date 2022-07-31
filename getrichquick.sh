@@ -14,4 +14,4 @@ sleep 1
 
 getrich=$(( ($RANDOM % 15 ) + $age ))
 
-echo "Hey $name, you will become a millionaire when you are $getrich years old"
+echo "Hey $name, you will become a millionaire when you are $getrich years old "
