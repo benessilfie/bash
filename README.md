@@ -169,6 +169,7 @@ sleep 1
 
 echo "Well Sir, Today is $date"
 ```
+<br>
 
 ### The $RANDOM Variable
 
