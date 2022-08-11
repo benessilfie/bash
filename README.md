@@ -112,7 +112,7 @@ echo "You're looking good today $name!!"
 
 sleep 1
 
-echo "You have the best beard I've ever seen $name"
+echo "You have the most beautiful eyes I've ever seen $name"
 ```
 
 - For multiple arguments, you create multpile parameters.
