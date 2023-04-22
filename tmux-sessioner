@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+# Set default values for optional parameters
+attach=false
+prev_session=""
+prev_dir=""
+
+# Parse command line options
+while getopts ":apl" opt; do
+  case ${opt} in
+    a )
+      attach=true
+      ;;
+    p )
+      prev_session="$OPTARG"
+      ;;
+    l|last )
+      # Switch to the last used session
+      tmux switch-client -l || { echo "Failed to switch to last session" >&2; exit 1; }
+      exit 0
+      ;;
+    \? )
+      echo "Invalid option: -$OPTARG" >&2
+      exit 1
+      ;;
+    : )
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+shift $((OPTIND -1))
+
+# If the -p option is specified, switch to the specified session and exit
+if [ "$prev_session" != "" ]; then
+  tmux switch-client -t "$prev_session" || { echo "Failed to switch to previous session" >&2; exit 1; }
+  exit 0
+fi
+
+# If the -a option is specified, prompt the user to choose a session to attach to
+if [ "$attach" = true ]; then
+  session=$(tmux ls | fzf) || { echo "Failed to list tmux sessions" >&2; exit 1; }
+  tmux switch-client -t "$session" || { echo "Failed to attach to session $session" >&2; exit 1; }
+else
+  # Prompt the user to choose a directory to create a new session in
+  session_dir=$(find ~ ~/learn/ ~/workspace/ -mindepth 1 -maxdepth 2 -type d | grep -v '/\.' | fzf) || { echo "No directories found" >&2; exit 1; }
+  tmux_session_name=$(basename "$session_dir" | tr . _)
+
+  # Create a new session if it does not already exist
+  if ! tmux has-session -t "$tmux_session_name" 2> /dev/null; then
+    tmux new-session -s "$tmux_session_name" -c "$session_dir" -d || { echo "Failed to create new session $tmux_session_name" >&2; exit 1; }
+  fi
+
+  # Remember the current session and directory for the -p option
+  prev_session="$tmux_session_name"
+  prev_dir="$session_dir"
+
+  # Switch to the new or existing session
+  tmux switch-client -t "$tmux_session_name" || { echo "Failed to switch to session $tmux_session_name" >&2; exit 1; }
+fi
+
