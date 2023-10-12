@@ -9,7 +9,7 @@ if [ "$#" -eq 1 ]; then
   session_dir="$1"
   tmux_session_name=$(basename "$new_session" | tr . _)
 else
-  # Prompt the user to choose a directory to create a new session in
+  # Prompt the user to choose a directory to create a new session for
   session_dir=$(find ~ ~/learn/ ~/workspace/ -mindepth 1 -maxdepth 2 -type d | grep -v '/\.' | fzf) || { echo "No directories found" >&2; exit 1; }
   tmux_session_name=$(basename "$session_dir" | tr . _)
 fi
