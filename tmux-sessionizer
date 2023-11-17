@@ -1,26 +1,21 @@
 #!/usr/bin/env bash
 
-# Set default values for optional parameters
-new_session=""
-
-# If a directory argument is given, create a session based on that directory
+# If a directory argument is given, use it as the session name and directory
 if [ "$#" -eq 1 ]; then
-  new_session="$1"
   session_dir="$1"
-  tmux_session_name=$(basename "$new_session" | tr . _)
+  tmux_session_name=$(basename "$session_dir" | tr . _)
 else
-  # Prompt the user to choose a directory to create a new session for
+  # Prompt the user to choose a directory to create a session from
   session_dir=$(find ~ ~/learn/ ~/workspace/ -mindepth 1 -maxdepth 2 -type d | grep -v '/\.' | fzf) || { echo "No directories found" >&2; exit 1; }
   tmux_session_name=$(basename "$session_dir" | tr . _)
 fi
 
-# Create a new session if it does not already exist
+# If the session already exists, switch to it
 if tmux has-session -t "$tmux_session_name" 2> /dev/null; then
   tmux switch-client -t "$tmux_session_name" || { echo "Failed to switch to session $tmux_session_name" >&2; exit 1; }
 else
+  # Otherwise, create a new session and switch to it
   tmux new-session -s "$tmux_session_name" -c "$session_dir" -d || { echo "Failed to create new session $tmux_session_name" >&2; exit 1; }
-  prev_dir="$session_dir"
-  prev_session="$tmux_session_name"
   tmux switch-client -t "$tmux_session_name" || { echo "Failed to switch to session $tmux_session_name" >&2; exit 1; }
 fi
 
